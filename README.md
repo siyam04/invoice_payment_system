@@ -1,7 +1,7 @@
 # Invoice Payment System
 * Developed By Django Web Framework
 
-## Instructions (Windows-10):
+## Instructions (Windows-10x64):
 * Some commands may differ depending on OS. Just google it.
 * Install latest version of Python3 (64 bit).
 
