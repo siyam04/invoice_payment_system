@@ -11,7 +11,7 @@
 * Install all the requirements using previously opened CMD where the virtual environment was activated:
   >> pip install -r requirements.txt
   
-* Run local server:
+* Run Local Server:
   >> python manage.py runserver
   
 * PATHs:
