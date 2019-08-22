@@ -13,3 +13,7 @@
   
 * Run local server:
   >> python manage.py runserver
+  
+* PATHs:
+  >> Homepage: http://127.0.0.1:8000/ (customizable)
+  >> Admin Dashboard: http://127.0.0.1:8000/admin/ (default)
