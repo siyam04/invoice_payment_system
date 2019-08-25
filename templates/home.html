@@ -7,33 +7,31 @@
     <h1>Dashboard</h1>
     <hr>
 
-    <!-- Messages -->
-    {% if messages %}
-    <div>
-      <strong>Messages:</strong>
-      <ul>
-	{% for message in messages %}
-	<li>{{message}}</li>
-	{% endfor %}
-      </ul>
-    </div>
-    {% endif %}
-    <!-- Messages -->
-
-    <!-- Homepage -->
+    <!-- Dashboard -->
     {% if request.user.is_authenticated %}
-        <h3>Welcome @<strong style="color: green">{{ user.username }}</strong>!</h3>
-        <hr>
-        <br>
-
-{#        <a href="{% url 'prescription:filtered-prescriptions' id=request.user.id %}">#}
-{#            <button type="button" class="btn btn-success">Go To Your Dashboard</button>#}
-{#        </a>#}
-
+        <h3>Welcome <b style="color: green">{{ user.username }}</b></h3><br>
     {% else %}
         <h1 style="color: red">You are not logged in!</h1>
     {% endif %}
-    <!-- Homepage -->
+
+    {% if request.user.is_authenticated %}
+
+        {% if profile %}
+            <p>
+                My Profile <a href="{% url 'custom_users:profile_details' profile.id %}">
+                {{ request.user.username }}
+            </a>
+            </p>
+
+        {% else %}
+            <p>
+                Create Profile <a href="{% url 'custom_users:profile_create' %}">
+                {{ request.user.username }}</a>
+            </p>
+        {% endif %}
+
+    {% endif %}
+    <!-- Dashboard -->
 
 {% endblock content %}
 

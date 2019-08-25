@@ -19,8 +19,8 @@ from django.urls import path, include
 from django.conf.urls.static import static
 from django.contrib.auth.views import LoginView, LogoutView
 
-from .views import HomeView
-# from .views import home
+# from .views import HomeView
+from .views import home
 
 
 urlpatterns = [
@@ -30,7 +30,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
 
     # Dashboard (Homepage)
-    path('', HomeView.as_view(), name='home'),
+    path('', home, name='home'),
 
     # App1 (custom_users)
     path('', include('custom_users.urls', namespace='custom_users')),

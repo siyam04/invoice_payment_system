@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block title %}Profile Details{% endblock %}
+
+{% block content %}
+
+    <h1>Profile Details</h1>
+
+    {% if profile %}
+
+        {% if profile.image %}
+            <img src="{{ profile.image.url }}" width="200" height="200" alt="image">
+        {% endif %}
+
+        <p>ID: {{profile.user.id}}</p>
+        <p>Username: {{profile.user.username}}</p>
+        <p>Profile name: {{profile.profile_name}}</p>
+        <p>Address: {{profile.address}}</p>
+        <p>Email: {{profile.user.email}}</p>
+
+    {% else %}
+        <p> You don't have any profile.<a href="{% url 'custom_users:profile_create' %}">Create</a></p>
+
+    {% endif %}
+
+    <a href="{% url 'custom_users:profile_edit' %}"><button type="submit" class="btn btn-danger">EDIT</button></a>
+
+{% endblock %}
+
