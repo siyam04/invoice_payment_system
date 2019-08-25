@@ -15,5 +15,5 @@
   >> python manage.py runserver
   
 * PATHs:
-  1. Django Admin Dashboard: http://127.0.0.1:8000/admin/ (default)
+  1. Django Admin Dashboard: http://127.0.0.1:8000/admin/ (default) (Username = admin, Password = admin123)
   2. Homepage: http://127.0.0.1:8000/
