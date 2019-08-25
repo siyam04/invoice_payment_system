@@ -20,41 +20,41 @@
     <hr>
 
     <a href="{% url 'home' %}">
-        <button type="button" class="btn btn-dark">Home</button>
+        <button type="button" class="btn btn-dark">LOGO</button>
     </a>
 
-    {% if user.is_authenticated %}
-        <a href="{% url 'custom_users:logout' %}">
+    {% if request.user.is_authenticated %}
+        <a href="#">
+            <button type="button" class="btn btn-warning">Profile</button>
+        </a>
+
+        <a href="{% url 'logout' %}">
             <button type="button" class="btn btn-danger">Logout</button>
         </a>
 
         <a href="#">
-            <button type="button" class="btn btn-danger">@{{ request.user.username }}</button>
+            <button type="button" class="btn btn-primary">Create Customer</button>
         </a>
 
         <a href="#">
-            <button type="button" class="btn btn-danger">Create Customer</button>
+            <button type="button" class="btn btn-primary">Create Product</button>
         </a>
 
         <a href="#">
-            <button type="button" class="btn btn-danger">Create Product</button>
+            <button type="button" class="btn btn-primary">Create Invoice</button>
         </a>
 
         <a href="#">
-            <button type="button" class="btn btn-danger">Create Invoice</button>
-        </a>
-
-        <a href="#">
-            <button type="button" class="btn btn-danger">View Invoice</button>
+            <button type="button" class="btn btn-primary">View Invoice</button>
         </a>
 
     {% else %}
-        <a href="{% url 'custom_users:login' %}">
+        <a href="{% url 'login' %}">
             <button type="button" class="btn btn-success">Login</button>
         </a>
 
-        <a href="{% url 'custom_users:signup' %}">
-            <button type="button" class="btn btn-primary">SignUp</button>
+        <a href="{% url 'custom_users:registration' %}">
+            <button type="button" class="btn btn-primary">Registration</button>
         </a>
     {% endif %}
 

@@ -17,6 +17,7 @@ from django.contrib import admin
 from django.conf import settings
 from django.urls import path, include
 from django.conf.urls.static import static
+from django.contrib.auth.views import LoginView, LogoutView
 
 from .views import HomeView
 # from .views import home
@@ -25,20 +26,23 @@ from .views import HomeView
 urlpatterns = [
 
 
-    # Superuser
+    # Admin
     path('admin/', admin.site.urls),
 
-    # Home
+    # Dashboard (Homepage)
     path('', HomeView.as_view(), name='home'),
 
     # App1 (custom_users)
-    # path('', include('custom_users.urls', namespace='custom_users')),
+    path('', include('custom_users.urls', namespace='custom_users')),
 
-    # App2 (diagnostic_centers)
-    # path('', include('diagnostic_centers.urls', namespace='diagnostic_centers')),
+    # App2 (products_invoices)
+    # path('', include('products_invoices.urls', namespace='products_invoices')),
 
-    # App3 (tests)
-    path('', include('django.contrib.auth.urls'), name='login'),
+    # Default PATHs
+    path('accounts/login/', LoginView.as_view(template_name='custom_users/login.html'), name='login'),
+    path('accounts/logout/', LogoutView.as_view(template_name='home.html'), name='logout'),
+
+    # path('', include('django.contrib.auth.urls'), name='login'),
 
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+          crossorigin="anonymous" />
+</head>
+
+<body>
+<div class="container">
+    <h1>Login</h1>
+    <hr>
+
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <hr>
+        <button type="submit" class="btn btn-success">LOGIN</button>
+    </form>
+
+    <br>
+    <p>Not registered yet? <a href="{% url 'custom_users:registration' %}">click here</a></p>
+
+</div>
+</body>
+</html>
+

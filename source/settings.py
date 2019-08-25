@@ -38,7 +38,13 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    # DRF
+    'rest_framework',
+
     # Custom Apps
+    'custom_users',
+    'products_invoices',
+
 ]
 
 MIDDLEWARE = [
@@ -131,3 +137,4 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 LOGIN_REDIRECT_URL = 'home'
 LOGOUT_REDIRECT_URL = 'home'
+
