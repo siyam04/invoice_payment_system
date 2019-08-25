@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block content %}
+    <hr>
+    <h1>Dashboard</h1>
+    <hr>
+
+    <!-- Messages -->
+    {% if messages %}
+    <div>
+      <strong>Messages:</strong>
+      <ul>
+	{% for message in messages %}
+	<li>{{message}}</li>
+	{% endfor %}
+      </ul>
+    </div>
+    {% endif %}
+    <!-- Messages -->
+
+    <!-- Homepage -->
+    {% if request.user.is_authenticated %}
+        <h3>Welcome @<strong style="color: green">{{ user.username }}</strong>!</h3>
+        <hr>
+        <br>
+
+{#        <a href="{% url 'prescription:filtered-prescriptions' id=request.user.id %}">#}
+{#            <button type="button" class="btn btn-success">Go To Your Dashboard</button>#}
+{#        </a>#}
+
+    {% else %}
+        <h1 style="color: red">You are not logged in!</h1>
+    {% endif %}
+    <!-- Homepage -->
+
+{% endblock content %}
+
+
+
+
+
+
+
+
+

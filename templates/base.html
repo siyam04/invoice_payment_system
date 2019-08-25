@@ -1,0 +1,71 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>{% block title %}{% endblock %}</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+          crossorigin="anonymous" />
+
+    <link rel="stylesheet" type="text/css" href="{% static 'bootstrap.min.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+</head>
+
+<body>
+
+<div class="container">
+    <hr>
+
+    <a href="{% url 'home' %}">
+        <button type="button" class="btn btn-dark">Home</button>
+    </a>
+
+    {% if user.is_authenticated %}
+        <a href="{% url 'custom_users:logout' %}">
+            <button type="button" class="btn btn-danger">Logout</button>
+        </a>
+
+        <a href="#">
+            <button type="button" class="btn btn-danger">@{{ request.user.username }}</button>
+        </a>
+
+        <a href="#">
+            <button type="button" class="btn btn-danger">Create Customer</button>
+        </a>
+
+        <a href="#">
+            <button type="button" class="btn btn-danger">Create Product</button>
+        </a>
+
+        <a href="#">
+            <button type="button" class="btn btn-danger">Create Invoice</button>
+        </a>
+
+        <a href="#">
+            <button type="button" class="btn btn-danger">View Invoice</button>
+        </a>
+
+    {% else %}
+        <a href="{% url 'custom_users:login' %}">
+            <button type="button" class="btn btn-success">Login</button>
+        </a>
+
+        <a href="{% url 'custom_users:signup' %}">
+            <button type="button" class="btn btn-primary">SignUp</button>
+        </a>
+    {% endif %}
+
+    {% block content %}
+
+
+    {% endblock %}
+
+</div>
+
+</body>
+</html>
+
+
