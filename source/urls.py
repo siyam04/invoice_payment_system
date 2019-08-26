@@ -22,6 +22,8 @@ from django.contrib.auth.views import LoginView, LogoutView
 # from .views import HomeView
 from .views import home, checkout
 
+# from products_invoices.views import checkout
+
 
 urlpatterns = [
 
@@ -32,7 +34,8 @@ urlpatterns = [
     # Dashboard
     path('', home, name='home'),
 
-    path('/checkout', checkout, name='checkout'),
+    # Stripe
+    path('checkout/', checkout, name='checkout'),
 
     # App1 (custom_users)
     path('', include('custom_users.urls', namespace='custom_users')),

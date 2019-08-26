@@ -12,18 +12,22 @@
     <!-- Messages -->
 
     <!-- Stripe form -->
+    <b style="color: red">Stripe Testing</b>
     <form action="{% url 'checkout' %}" method="post">
         {% csrf_token %}
         <article><label><span>Amount is $5.00</span></label></article>
 
         <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
             data-key = "{{ key }}"
-            data-image = "https://tinyurl.com/y3zspzmv"
-            data-description = "TEXT"
+            data-image = "https://cutt.ly/1wgJms3"
+            data-description = "PAYMENT"
             data-amount = "500"
             data-locale = "auto"></script>
     </form>
+    <hr>
     <!-- Stripe form end -->
+
+    <br><br>
 
     <!-- Dashboard -->
     {% if request.user.is_authenticated %}

@@ -7,6 +7,8 @@ from .views import (
     create_invoice,
     single_invoice_details,
     view_all_invoices,
+
+    checkout,
 )
 
 
@@ -24,6 +26,9 @@ urlpatterns = [
     path('single_invoice_details/<int:id>/', single_invoice_details, name='single_invoice_details'),
 
     path('view_all_invoices/', view_all_invoices, name='view_all_invoices'),
+
+    # Stripe
+    path('checkout/', checkout, name='checkout'),
 
 ]
 

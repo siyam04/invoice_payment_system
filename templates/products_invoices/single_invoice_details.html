@@ -81,13 +81,26 @@
         </tr>
     </table>
     <br>
-
-    <h3>Please Payment Using One Method</h3>
     <hr>
-    <button type="submit" class="btn btn-success">PayPal</button>
-    <button type="submit" class="btn btn-primary">Stripe</button>
+    <h3>Stripe Payment</h3>
     <br>
-    <hr>
+
+    <!-- Stripe form -->
+    <form action="{% url 'checkout' %}" method="post">
+        {% csrf_token %}
+
+        <p>Total Amount is <b style="color: green">{{ invoice_details.total }}</b></p>
+
+        <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+            data-key = "{{ key }}"
+            data-image = "https://cutt.ly/1wgJms3"
+            data-description = "PAYMENT"
+            data-amount = "500"
+            data-locale = "auto"></script>
+    </form>
+    <!-- Stripe form end -->
+    <br>
+    <br>
 </div>
 {% endblock %}
 

@@ -1,5 +1,9 @@
+import json
+import stripe
 from django.db.models import Q
+from django.conf import settings
 from django.contrib import messages
+from django.http import JsonResponse
 from django.core.paginator import Paginator
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
@@ -11,6 +15,12 @@ from .models import Customer, Product, Invoice
 from .forms import CreateCustomerForm, CreateProductForm, CreateInvoiceForm
 
 from custom_users.models import Profile
+
+
+# Stripe keys
+stripe_pub = settings.STRIPE_PUBLISHABLE_KEY
+stripe_sec = settings.STRIPE_SECRET_KEY
+stripe.api_key = stripe_sec
 
 
 @login_required(login_url='login')
@@ -104,10 +114,28 @@ def single_invoice_details(request, id=None):
     context = {
         'invoice_details': invoice_details,
         # 'invoice_details_by_customer': invoice_details_by_customer,
+
+        # Stripe key
+        'key': stripe_pub,
     }
 
     template = 'products_invoices/single_invoice_details.html'
 
     return render(request, template, context)
+
+
+# Stripe checkout
+def checkout(request):
+    amount = 500
+    customer = stripe.Customer.create(email=request.POST['stripeEmail'],
+                                      source=request.POST['stripeToken'])
+
+    charge = stripe.Charge.create(customer=customer.id, amount=amount, currency='USD',
+                                  description='Sample Charge')
+    print('status', charge)
+
+    return JsonResponse(charge)
+
+
 
 
