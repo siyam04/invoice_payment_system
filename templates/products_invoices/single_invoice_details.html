@@ -41,7 +41,7 @@
             <td></td>
             <td></td>
             <td></td>
-            <td style="border: 1px solid black">0.00</td>
+            <td style="border: 1px solid black">#</td>
         </tr>
         <tr>
             <td></td>
@@ -68,7 +68,7 @@
             <td></td>
             <td></td>
             <td></td>
-            <td style="border: 1px solid black">0.00</td>
+            <td style="border: 1px solid black">#</td>
         </tr>
         <tr>
             <td></td>
@@ -77,9 +77,17 @@
             <td></td>
             <td></td>
             <td>TOTAL ORDER</td>
-            <td style="border: 1px solid black">0.00</td>
+            <td style="border: 1px solid black">{{ invoice_details.total }}</td>
         </tr>
     </table>
+    <br>
+
+    <h3>Please Payment Using One Method</h3>
+    <hr>
+    <button type="submit" class="btn btn-success">PayPal</button>
+    <button type="submit" class="btn btn-primary">Stripe</button>
+    <br>
+    <hr>
 </div>
 {% endblock %}
 

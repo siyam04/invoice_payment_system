@@ -1,0 +1,9 @@
+
+pip install -U -r requirements.text
+
+pip install -r requirements.text
+
+pip freeze > requirements.text
+
+pip show 'my_package_name'
+

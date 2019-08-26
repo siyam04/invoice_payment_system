@@ -60,13 +60,26 @@ class Invoice(models.Model):
 
 
 # class Order(models.Model):
-#     product_name = models.CharField(max_length=150)
-#     category = models.CharField(max_length=150)
-#     description = models.TextField(max_length=500)
+#     invoice = models.ForeignKey(Invoice, on_delete=models.CASCADE)
+#     reference = models.CharField(max_length=10, auto_created=True)
+#     customer = models.ForeignKey(Customer, on_delete=models.CASCADE)
+#     email = models.EmailField(null=True, blank=True)
+#     customer_order_reference = models.CharField(max_length=10)
+#     order_date = models.DateField(blank=True, null=True)
+#     required_by = models.DateField(blank=True, null=True)
+#     delivery_to = models.CharField(max_length=150)
+#
 #
 #     class Meta:
 #         ordering = ['-id']
 #
 #     def __str__(self):
-#         return self.product_name
+#         return self.reference
+#
+#     @property
+#     def order_total(self):
+#         total = self.quantity * self.unit_price - (self.discount / 100)
+#         # modification = '{:.2f}'.format(total_price)
+#         # modification = round(total_price, 2)
+#         return total_price
 

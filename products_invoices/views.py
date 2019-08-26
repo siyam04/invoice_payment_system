@@ -110,3 +110,4 @@ def single_invoice_details(request, id=None):
 
     return render(request, template, context)
 
+

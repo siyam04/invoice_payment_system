@@ -28,8 +28,15 @@ DEBUG = True
 ALLOWED_HOSTS = []
 
 
-# Application definition
+# Email setting
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'workstation844@gmail.com'
+EMAIL_HOST_PASSWORD = ''
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
 
+
+# Application definition
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -37,6 +44,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    # PayPal ipn (instant payment notifications)
+    # 'paypal.standard.ipn',
+
+    # Stripe
+    'stripe',
 
     # DRF
     'rest_framework',
@@ -46,6 +59,16 @@ INSTALLED_APPS = [
     'products_invoices',
 
 ]
+
+# Django PayPal setting
+# PAYPAL_RECEIVER_EMAIL = 'workstation844@gmail.com'
+# PAYPAL_TEST = True
+
+
+# Stripe Setting
+STRIPE_PUBLISHABLE_KEY = 'pk_test_uKtK1ogXezVwVXekwu1MH1aE00MbuSvOu9'
+STRIPE_SECRET_KEY = 'sk_test_EaG8kbeqIW0MtdDyKwMyBrXx00ximAMoHq'
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

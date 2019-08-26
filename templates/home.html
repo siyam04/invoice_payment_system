@@ -11,6 +11,20 @@
     {% include 'messages.html' %}
     <!-- Messages -->
 
+    <!-- Stripe form -->
+    <form action="{% url 'checkout' %}" method="post">
+        {% csrf_token %}
+        <article><label><span>Amount is $5.00</span></label></article>
+
+        <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+            data-key = "{{ key }}"
+            data-image = "https://tinyurl.com/y3zspzmv"
+            data-description = "TEXT"
+            data-amount = "500"
+            data-locale = "auto"></script>
+    </form>
+    <!-- Stripe form end -->
+
     <!-- Dashboard -->
     {% if request.user.is_authenticated %}
         <h3>Welcome <b style="color: green">{{ user.username }}</b></h3><br>
