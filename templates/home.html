@@ -7,6 +7,10 @@
     <h1>Dashboard</h1>
     <hr>
 
+    <!-- Messages -->
+    {% include 'messages.html' %}
+    <!-- Messages -->
+
     <!-- Dashboard -->
     {% if request.user.is_authenticated %}
         <h3>Welcome <b style="color: green">{{ user.username }}</b></h3><br>

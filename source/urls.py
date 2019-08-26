@@ -29,14 +29,14 @@ urlpatterns = [
     # Admin
     path('admin/', admin.site.urls),
 
-    # Dashboard (Homepage)
+    # Dashboard
     path('', home, name='home'),
 
     # App1 (custom_users)
     path('', include('custom_users.urls', namespace='custom_users')),
 
     # App2 (products_invoices)
-    # path('', include('products_invoices.urls', namespace='products_invoices')),
+    path('', include('products_invoices.urls', namespace='products_invoices')),
 
     # Default PATHs
     path('accounts/login/', LoginView.as_view(template_name='custom_users/login.html'), name='login'),

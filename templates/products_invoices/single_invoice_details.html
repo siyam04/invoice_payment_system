@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block title %}Invoice Details{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1 style="text-align: right">INVOICE</h1>
+
+    <p>{{invoice_details.customer.address}}</p>
+    <p style="color: red">Phone: ##</p>
+    <p>Email: {{invoice_details.customer.email}}</p>
+
+    <p style="text-align: right; color: red">Order Date: {{invoice_details.date}}</p>
+    <p style="text-align: right">Transaction ID: {{invoice_details.id}}</p>
+
+    <br><br>
+
+    <table style="width: 100%; border: 1px solid black">
+        <tr style="border: 1px solid black">
+            <th>Item Code</th>
+            <th>Item Description</th>
+            <th>Quantity</th>
+            <th>Unit</th>
+            <th>Price</th>
+            <th>Discount</th>
+            <th style="text-align: right">Total</th>
+        </tr>
+        <tr>
+            <th>{{ invoice_details.item_code }}</th>
+            <th>{{ invoice_details.item_description.product_name }}</th>
+            <th>{{ invoice_details.quantity }}</th>
+            <th>{{ invoice_details.unit_price }}</th>
+            <th>{{ invoice_details.discount }}</th>
+            <th>{{ invoice_details.total_price }}</th>
+        </tr>
+    </table>
+</div>
+{% endblock %}
+

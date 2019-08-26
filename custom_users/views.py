@@ -14,6 +14,8 @@ def registration(request):
 
         if form.is_valid():
             user = form.save()
+            messages.success(request, 'Registration Successful! Login please...', extra_tags='safe')
+
             return redirect('login')
     else:
         form = SignUpForm()
@@ -33,6 +35,7 @@ def profile_create(request):
             profile = form.save(commit=False)
             profile.user = request.user
             profile.save()
+            messages.success(request, 'Profile Created Successfully!', extra_tags='safe')
 
             return redirect('custom_users:profile_details', id=profile.id)
 
@@ -65,7 +68,7 @@ def profile_edit(request):
             profile = form.save(commit=False)
             profile.user = request.user
             profile.save()
-            # messages.success(request, 'Profile Updated for {}'.format(request.user.username), extra_tags='html_safe')
+            messages.success(request, 'Profile Successfully Updated for {}'.format(request.user.username), extra_tags='safe')
 
             # return redirect('user/profile-detail/')
             return redirect('custom_users:profile_details', id=profile.id)

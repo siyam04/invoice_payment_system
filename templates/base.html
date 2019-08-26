@@ -19,7 +19,7 @@
 <div class="container">
 
     <a href="{% url 'home' %}">
-        <button type="button" class="btn btn-dark">DASHBOARD</button>
+        <button type="button" class="btn btn-success">HOME</button>
     </a>
 
     {% if request.user.is_authenticated %}
@@ -31,20 +31,20 @@
             <button type="button" class="btn btn-danger">Logout</button>
         </a>
 
-        <a href="#">
+        <a href="{% url 'products_invoices:create_customer' %}">
             <button type="button" class="btn btn-primary">Create Customer</button>
         </a>
 
-        <a href="#">
+        <a href="{% url 'products_invoices:create_product' %}">
             <button type="button" class="btn btn-primary">Create Product</button>
         </a>
 
-        <a href="#">
+        <a href="{% url 'products_invoices:create_invoice' %}">
             <button type="button" class="btn btn-primary">Create Invoice</button>
         </a>
 
-        <a href="#">
-            <button type="button" class="btn btn-primary">View Invoice</button>
+        <a href="{% url 'products_invoices:view_all_invoices' %}">
+            <button type="button" class="btn btn-primary">View All Invoices</button>
         </a>
 
     {% else %}
@@ -57,6 +57,10 @@
         </a>
     {% endif %}
     <hr>
+
+    <!-- Messages -->
+    {% include 'messages.html' %}
+    <!-- Messages -->
 
     {% block content %}
 
