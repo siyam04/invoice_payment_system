@@ -25,7 +25,7 @@ SECRET_KEY = 'vlp#q#^fi5eo*2%4s-=0&&m+ogd)=k(h6a7j0eaaxc&(wy8kc#'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Email setting
@@ -71,6 +71,10 @@ STRIPE_SECRET_KEY = 'sk_test_EaG8kbeqIW0MtdDyKwMyBrXx00ximAMoHq'
 
 
 MIDDLEWARE = [
+
+    # WhiteNoise Middleware for Heroku
+    'whitenoise.middleware.WhiteNoiseMiddleware',
+
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -148,6 +152,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static')
@@ -161,3 +166,12 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 LOGIN_REDIRECT_URL = 'home'
 LOGOUT_REDIRECT_URL = 'home'
 
+
+# Heroku: Update database configuration from $DATABASE_URL.
+import dj_database_url
+db_from_env = dj_database_url.config(conn_max_age=500)
+DATABASES['default'].update(db_from_env)
+
+
+# reduce the size of the static files when they are served
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
