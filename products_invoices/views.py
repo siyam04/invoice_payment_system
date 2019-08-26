@@ -1,6 +1,7 @@
 from django.db.models import Q
 from django.contrib import messages
 from django.core.paginator import Paginator
+from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect, HttpResponse
 from django.contrib.auth import login, logout, authenticate
@@ -95,13 +96,14 @@ def view_all_invoices(request, ):
 
 @login_required(login_url='login')
 def single_invoice_details(request, id=None):
-
     invoice_details = Invoice.objects.get(id=id)
-    # invoice_details_by_customer = Invoice.objects.get(customer__id=id)
+    # user = get_object_or_404(User, id=request.user.id)
+    # invoice_details = Invoice.objects.get(id=user.id)
+    # invoice_details_by_customer = Invoice.objects.filter(customer__id=id)
 
     context = {
-        # 'invoice_details_by_customer': invoice_details_by_customer,
         'invoice_details': invoice_details,
+        # 'invoice_details_by_customer': invoice_details_by_customer,
     }
 
     template = 'products_invoices/single_invoice_details.html'

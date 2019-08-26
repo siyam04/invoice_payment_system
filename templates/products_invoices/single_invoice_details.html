@@ -22,16 +22,62 @@
             <th>Quantity</th>
             <th>Unit</th>
             <th>Price</th>
-            <th>Discount</th>
-            <th style="text-align: right">Total</th>
+            <th>Discount%</th>
+            <th style="border: 1px solid black">Total</th>
         </tr>
         <tr>
-            <th>{{ invoice_details.item_code }}</th>
-            <th>{{ invoice_details.item_description.product_name }}</th>
-            <th>{{ invoice_details.quantity }}</th>
-            <th>{{ invoice_details.unit_price }}</th>
-            <th>{{ invoice_details.discount }}</th>
-            <th>{{ invoice_details.total_price }}</th>
+            <td>{{ invoice_details.item_code }}</td>
+            <td>{{ invoice_details.item_description.description }}</td>
+            <td>{{ invoice_details.quantity }}</td>
+            <td style="color: red">##</td>
+            <td>{{ invoice_details.unit_price }}</td>
+            <td>{{ invoice_details.discount }}</td>
+            <td style="border: 1px solid black">{{ invoice_details.total }}</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td style="border: 1px solid black">0.00</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>Sub Total</td>
+            <td style="border: 1px solid black">0.00</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>Shipping</td>
+            <td style="border: 1px solid black">0.00</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td style="border: 1px solid black">0.00</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>TOTAL ORDER</td>
+            <td style="border: 1px solid black">0.00</td>
         </tr>
     </table>
 </div>

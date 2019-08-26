@@ -24,7 +24,7 @@ class ProductAdmin(admin.ModelAdmin):
 
 
 class InvoiceAdmin(admin.ModelAdmin):
-    list_display = ['customer', 'currency', 'date', 'item_code', 'item_description', 'quantity', 'unit_price',
+    list_display = ['id', 'customer', 'currency', 'date', 'item_code', 'item_description', 'quantity', 'unit_price',
                     'discount', 'total']
 
     list_display_links = ['item_code']
