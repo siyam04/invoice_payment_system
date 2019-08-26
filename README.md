@@ -23,5 +23,5 @@
   >>(venv):~$ python manage.py createsuperuser
   
 * PATHs:
-  >> Django Admin Dashboard: http://127.0.0.1:8000/admin/ (default) (Username = admin, Password = admin123)
-  >> Homepage: http://127.0.0.1:8000/
+  1. Django Admin Dashboard: http://127.0.0.1:8000/admin/ (default) (Username = admin, Password = admin123)
+  2. Homepage: http://127.0.0.1:8000/
