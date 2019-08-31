@@ -12,7 +12,7 @@
 * Install and active virtual environment directory:
   1. :~$ cd Repository/venv/Scripts/
   2. :~$ activate
-  3. (venv):~$ This (venv) sign will be shown up if virtual environment activated successfully
+  3. (venv):~$ This '(venv)' sign will be shown up if virtual environment activated successfully
   
 * Install all the requirements using previously opened CMD where the virtual environment was activated:
   >> (venv):~$ pip install -r requirements.txt
